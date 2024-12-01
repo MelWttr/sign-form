@@ -1,9 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, ReactNode, FC, CSSProperties } from 'react';
 import cls from './RadioGroup.module.scss';
+import { size } from '../../types/size-type';
 
-export const RadioGroup = (props) => {
+interface RadioGroupProps {
+  size: size,
+  label?: string,
+  description?: string,
+  error?: string,
+  isRequired?: boolean,
+  children: ReactNode;
+
+}
+
+export const RadioGroup: FC<RadioGroupProps> = (props) => {
   const {
-    size,
+    size = 'sm',
     label,
     description,
     error,
@@ -11,7 +22,7 @@ export const RadioGroup = (props) => {
     children,
   } = props;
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.documentElement.style.setProperty('--radio-size', `var(--radio-size-${size})`);
@@ -19,7 +30,8 @@ export const RadioGroup = (props) => {
     if (container) {
       container.style.setProperty('--container-font-size', `var(--input-font-size-${size})`);
     }
-  });
+  }, [size]);
+  
   return (
     <div ref={containerRef} className={cls.container}>
       {label

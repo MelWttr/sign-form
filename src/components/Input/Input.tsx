@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, FC, CSSProperties } from 'react';
+import React, { useEffect, useRef, FC, CSSProperties, ChangeEvent } from 'react';
 import cn from 'classnames';
 import cls from './Input.module.scss';
 import { size } from '../../types/size-type';
@@ -18,11 +18,13 @@ interface InputProps {
   radius?: size;
   type?: string;
   viewType?: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<InputProps> = (props) => {
   const {
     id,
+    onChange,
     label,
     isRequired,
     disabled,
@@ -95,6 +97,7 @@ export const Input: FC<InputProps> = (props) => {
               </div>}
         <input
           ref={inputRef}
+          onChange={onChange}
           disabled={disabled}
           className={cn(
             cls.input,

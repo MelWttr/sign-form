@@ -10,6 +10,7 @@ export function App() {
       <Input
         id='inp'
         label='label'
+        onChange={() => {}}
         isRequired
         description='descr'
         placeholder='plh'
@@ -21,16 +22,15 @@ export function App() {
     </div>
     <div>
       <RadioGroup
-        name='radio-name'
         label='label'
         isRequired
         description='descr'
         error='errr'
         size='lg'
       >
-        <Radio value='radio1' label='Radio1' name='radios'/>
-        <Radio value='radio2' label='Radio2' name='radios'/>
-        <Radio value='radio3' label='Radio3' name='radios'/>
+        <Radio value='radio1' label='Radio1' name='radios' onChange={() => {}}/>
+        <Radio value='radio2' label='Radio2' name='radios' onChange={() => {}}/>
+        <Radio value='radio3' label='Radio3' name='radios' onChange={() => {}}/>
       </RadioGroup>
 
     </div>
