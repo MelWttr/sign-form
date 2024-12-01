@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, FC, CSSProperties } from 'react';
 import cn from 'classnames';
 import cls from './Input.module.scss';
-
-type size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
+import { size } from '../../types/size-type';
+import { getContainerFontSize } from '../../helpers/get-container-font-size';
 interface InputProps {
   id: string;
   label?: string;
@@ -21,10 +20,6 @@ interface InputProps {
   viewType?: string;
 }
 
-const getContainerFontSize = (size: size): CSSProperties => ({
-  fontSize: `var(--input-font-size-${size})`,
-});
-
 export const Input: FC<InputProps> = (props) => {
   const {
     id,
@@ -37,7 +32,7 @@ export const Input: FC<InputProps> = (props) => {
     RightSection,
     error,
     focused,
-    size = 'lg',
+    size = 'xs',
     radius = 'sm',
     type = 'text',
     viewType,
@@ -113,7 +108,7 @@ export const Input: FC<InputProps> = (props) => {
           type={type} id={id}
           placeholder={placeholder} />
       </div>
-      {error && <p className={cls['error-text']} style={{ fontSize: `var(--error-font-size-${size})` }}>{error}</p>}
+      {error && <p className={cls['error-text']}>{error}</p>}
     </div>
   );
 };
