@@ -3,6 +3,7 @@
 @import url('../../style/variables/radio.scss');
 
 .container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 0.7em;

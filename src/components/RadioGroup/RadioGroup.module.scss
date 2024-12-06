@@ -5,8 +5,7 @@
 .container {
   --container-font-size: var(--input-font-size-sm);
 
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  width: 100%;
   line-height: 1.55;
   font-size: var(--container-font-size);
 };

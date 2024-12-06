@@ -4,7 +4,7 @@ import cls from './Input.module.scss';
 import { size } from '../../types/size-type';
 import { getContainerFontSize } from '../../helpers/get-container-font-size';
 interface InputProps {
-  id: string;
+  name: string;
   label?: string;
   isRequired?: boolean;
   disabled?: boolean;
@@ -23,7 +23,7 @@ interface InputProps {
 
 export const Input: FC<InputProps> = (props) => {
   const {
-    id,
+    name,
     onChange,
     label,
     isRequired,
@@ -34,7 +34,7 @@ export const Input: FC<InputProps> = (props) => {
     RightSection,
     error,
     focused,
-    size = 'xs',
+    size = 'sm',
     radius = 'sm',
     type = 'text',
     viewType,
@@ -72,7 +72,7 @@ export const Input: FC<InputProps> = (props) => {
   return (
     <div className={cn(cls.container)} style={getContainerFontSize(size)}>
       {
-        label && <label className={cls.label} htmlFor={id}>
+        label && <label className={cls.label} htmlFor={name}>
           {label}
           {isRequired && <span className={cls.required}> *</span>}
         </label>
@@ -99,6 +99,8 @@ export const Input: FC<InputProps> = (props) => {
           ref={inputRef}
           onChange={onChange}
           disabled={disabled}
+          id={name}
+          name={name}
           className={cn(
             cls.input,
             cls[viewType],
@@ -108,7 +110,8 @@ export const Input: FC<InputProps> = (props) => {
               [cls.disabled]: disabled,
             },
           )}
-          type={type} id={id}
+          type={type}
+          required={isRequired}
           placeholder={placeholder} />
       </div>
       {error && <p className={cls['error-text']}>{error}</p>}

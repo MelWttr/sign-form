@@ -4,6 +4,7 @@
 .container {
   --container-font-size: var(--input-font-size-sm);
 
+  width: 100%;
   line-height: 1.55;
   font-size: var(--container-font-size);
 };
@@ -20,6 +21,7 @@
   --input-radius: var(--input-radius-sm);
   --input-bg-color: var(--color-white);
 
+  width: 100%;
   height: var(--input-height);
   padding-left: var(--input-padding);
   padding-right: var(--input-padding);

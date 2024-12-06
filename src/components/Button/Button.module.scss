@@ -1,0 +1,7 @@
+@import url('../../style/variables/global.scss');
+
+.button {
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+}

@@ -1,0 +1,17 @@
+@import url('../../style/variables/global.scss');
+@import url('../../style/variables/input.scss');
+@import url('../../style/variables/radio.scss');
+
+.form {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 0.6em;
+}
+
+.submit {
+    margin-top: 1rem;
+}
+
+
+
