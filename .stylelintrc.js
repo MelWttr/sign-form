@@ -1,7 +1,8 @@
 
 module.exports = {
-    extends: "stylelint-config-htmlacademy",
+    extends: "stylelint-config-standard",
     rules: {
-        "declaration-no-important": true,
+        "declaration-no-important": null,
     },
+    plugins: ["stylelint-scss"],
 };

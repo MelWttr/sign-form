@@ -1,0 +1,42 @@
+@import url('../../style/variables/global.scss');
+@import url('../../style/variables/input.scss');
+@import url('../../style/variables/radio.scss');
+
+.container {
+  --container-font-size: var(--input-font-size-sm);
+
+  width: 100%;
+  line-height: 1.55;
+  font-size: var(--container-font-size);
+};
+
+.radio-wrapper {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-size: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.label {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.description {
+    font-size: 0.9em;
+    color: var(--color-gray-text);
+};
+
+.error-text {
+    font-size: 0.9em;
+    color: var(--color-red);
+};
+
+.required {
+  color: var(--color-red);
+  font-size: inherit;
+}
+

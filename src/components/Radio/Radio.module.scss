@@ -1,0 +1,67 @@
+@import url('../../style/variables/global.scss');
+@import url('../../style/variables/input.scss');
+@import url('../../style/variables/radio.scss');
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  line-height: 1.55;
+  font-size: inherit;
+};
+
+.wrapper {
+  position: relative;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: var(--color-white);
+    pointer-events: none;
+  }
+}
+
+.input {
+  width: var(--radio-size);
+  height: var(--radio-size);
+  outline: none;
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  border-radius: 50%;
+
+
+  & + svg {
+    display: none;
+  }
+
+  &:checked {
+    background-color: var(--color-blue);
+    border: none;
+
+    & + svg {
+      display: block;
+    }
+  }
+}
+
+.label-wrapper {
+  font-size: inherit;
+}
+
+.label {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+};
+
+
