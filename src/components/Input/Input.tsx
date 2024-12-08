@@ -18,7 +18,7 @@ interface InputProps {
   radius?: size;
   type?: string;
   viewType?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<InputProps> = (props) => {

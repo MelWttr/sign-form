@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import { Input } from '../Input/Input';
 import { Form } from '../Form/Form';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { Radio } from '../Radio/Radio';
-import { getErrors } from '../../helpers/get-errors';
 import { Email } from '../Icons/Email';
+import { FormValues } from '../../interfaces/form-values';
+import { onSubmit } from '../../types/form-submit-type';
+import { UseForm } from '../../hooks/useForm';
 
-const initialValues = {
+interface SignInProps {
+  onSubmit: onSubmit<FormValues>;
+}
+
+const initialValues: FormValues = {
   name: '',
   nickname: '',
   email: '',
@@ -15,30 +21,8 @@ const initialValues = {
   repeatPassword: '',
 };
 
-export const SignUp = ({ onSubmit }) => {
-  const [values, setValues] = useState(initialValues);
-
-  const [errors, setErrors] = useState(null);
-
-  const handleChange = (evt) => {
-    setValues((prevValues) => ({
-      ...prevValues,
-      [evt.target.name]: evt.target.value,
-    }));
-  };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    setErrors(null);
-
-    const newErrors = getErrors(values);
-
-    if (Object.keys(newErrors).length) {
-      setErrors(newErrors);
-    } else {
-      onSubmit(values);
-    }
-  };
+export const SignUp: FC<SignInProps> = ({ onSubmit }) => {
+  const { errors, handleChange, handleSubmit } = UseForm<FormValues>(onSubmit, initialValues);
 
   return (
   <Form onChange={handleChange} onSubmit={handleSubmit} submitText='Sign up'>
@@ -102,6 +86,5 @@ export const SignUp = ({ onSubmit }) => {
         placeholder='Enter password here'
       />
   </Form>
-
   );
 };

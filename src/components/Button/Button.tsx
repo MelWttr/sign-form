@@ -1,8 +1,15 @@
-import React, { memo } from 'react';
+import React, { FC, memo, MouseEvent } from 'react';
 import cn from 'classnames';
 import cls from './Button.module.scss';
 
-export const Button = memo((props) => {
+interface ButtonProps {
+  text: string,
+  type: "button" | "submit" | "reset",
+  className?: string,
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const Button: FC<ButtonProps> = memo((props) => {
   const {
     text,
     onClick,

@@ -4,7 +4,7 @@ import cls from './Radio.module.scss';
 
 interface RadioProps {
   value: string,
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   label: string;
   name: string;
   isChecked?: boolean;

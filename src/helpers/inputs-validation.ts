@@ -1,13 +1,15 @@
 import { PASSWORD_MIN_LENGTH } from '../constants';
 
-export const validateTextInput = (inputValue) => {
+type validateInput = (value: string, secondValue?: string) => string | null;
+
+export const validateTextInput: validateInput = (inputValue) => {
   if (!inputValue) {
     return 'Field shouldn\'t be empty';
   }
   return null;
 };
 
-export const validatePassword = (inputValue) => {
+export const validatePassword: validateInput = (inputValue) => {
   const error = validateTextInput(inputValue);
   if (error) {
     return error;
@@ -19,7 +21,7 @@ export const validatePassword = (inputValue) => {
   return null;
 };
 
-export const validateRepeatedPassword = (passwordValue, inputValue) => {
+export const validateRepeatedPassword: validateInput = (passwordValue, inputValue) => {
   const error = validateTextInput(inputValue);
   if (error) {
     return error;
@@ -30,7 +32,7 @@ export const validateRepeatedPassword = (passwordValue, inputValue) => {
   return null;
 };
 
-export const validateEmail = (inputValue) => {
+export const validateEmail: validateInput = (inputValue) => {
   const error = validateTextInput(inputValue);
   if (error) {
     return error;

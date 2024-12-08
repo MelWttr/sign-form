@@ -3,7 +3,7 @@ import cls from './RadioGroup.module.scss';
 import { size } from '../../types/size-type';
 
 interface RadioGroupProps {
-  size: size,
+  size?: size,
   label?: string,
   description?: string,
   error?: string,
